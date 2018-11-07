@@ -134,6 +134,11 @@ Instagram_Fecth('landscapeswelove')
 		document.getElementById('instagram_followers').innerHTML = Instagram.followers;
 	});
 
+
+
+/**
+ * Standard Slider
+ */
 function slider_next(e){
 	var current = jQuery(e).parent().attr('data-slider') ? parseFloat(jQuery(e).parent().attr('data-slider')) : 0,
 	content = jQuery(e).parent().find('.content'),
@@ -169,4 +174,39 @@ function slider_prev(e){
 	jQuery(e).parent().find('.next').css('display','block');
 	jQuery(e).parent().attr('data-slider',newVal);
 	content.css({'left': newVal + 'px'});
+}
+
+
+/**
+ * Ease Swipe Slider
+ */
+function easeSwipe_slider_next(e){
+	var parent = jQuery(e).parent(),
+	content = parent.find('.content'),
+	current = parseInt(parent.attr('data-slider')),
+	newVal = current + 1;
+
+	if(newVal > content.find('.item').length){
+		newVal = 1;
+	}
+
+	content.find('.item.active').removeClass('active');
+	content.find('.item[data-id='+ newVal +']').addClass('active');
+
+	parent.attr('data-slider',newVal);
+}
+function easeSwipe_slider_prev(e){
+	var parent = jQuery(e).parent(),
+	content = parent.find('.content'),
+	current = parseInt(parent.attr('data-slider')),
+	newVal = current - 1;
+
+	if(newVal <= 0){
+		newVal = content.find('.item').length;
+	}
+
+	content.find('.item.active').removeClass('active');
+	content.find('.item[data-id='+ newVal +']').addClass('active');
+
+	parent.attr('data-slider',newVal);
 }

@@ -6188,7 +6188,9 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%; }
 
 .container1 {
-  background: black url("src/img/jaime-0.png") no-repeat center/cover; }
+  background: black; }
+  .container1 .navbar {
+    z-index: 10; }
   .container1 .navbar.center {
     padding-top: 10px;
     justify-content: center;
@@ -6197,32 +6199,56 @@ a.text-dark:hover, a.text-dark:focus {
       text-transform: uppercase;
       font-style: italic;
       color: inherit; }
-  .container1 .center_content, .container1 .next, .container1 .prev {
+  .container1 .content {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
     text-align: center;
     color: #ffffff; }
-    .container1 .center_content .category, .container1 .next .category, .container1 .prev .category {
-      font-size: 14px;
-      text-transform: uppercase; }
-    .container1 .center_content .title, .container1 .next .title, .container1 .prev .title {
-      padding: 4px 0;
-      font-size: 28px;
-      font-weight: 600;
-      text-transform: uppercase; }
-    .container1 .center_content .detail, .container1 .next .detail, .container1 .prev .detail {
-      font-size: 14px; }
-      .container1 .center_content .detail .divider, .container1 .next .detail .divider, .container1 .prev .detail .divider {
-        padding: 0 12px; }
+    .container1 .content .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transition: var(--transition);
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; }
+      .container1 .content .item.active {
+        opacity: 1; }
+      .container1 .content .item .centered_content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); }
+        .container1 .content .item .centered_content .category {
+          font-size: 14px;
+          text-transform: uppercase; }
+        .container1 .content .item .centered_content .title {
+          padding: 4px 0;
+          opacity: 1;
+          font-size: 28px;
+          font-weight: 600;
+          text-transform: uppercase; }
+        .container1 .content .item .centered_content .detail {
+          font-size: 14px;
+          transition: var(--transition); }
+          .container1 .content .item .centered_content .detail .divider {
+            padding: 0 12px; }
   .container1 .next, .container1 .prev {
+    position: absolute;
     height: 48px;
     width: 48px;
+    top: 50%;
+    left: 50%;
     left: 0;
-    -webkit-transform: unset;
-            transform: unset;
+    text-align: center;
+    color: #ffffff;
     background: url("src/img/chevron.png") no-repeat center/contain; }
   .container1 .next {
     left: unset;
@@ -6440,7 +6466,7 @@ a.text-dark:hover, a.text-dark:focus {
         text-align: center;
         border-radius: 50%;
         color: #ffffff;
-        background: #00000080 url("src/img/chevron.png") no-repeat 45% 50%/auto 48px; }
+        background: rgba(0, 0, 0, 0.4) url("src/img/chevron.png") no-repeat 45% 50%/auto 48px; }
       #before-footer .instagram .slider .next {
         left: unset;
         right: 65px;
