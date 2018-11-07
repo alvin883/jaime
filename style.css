@@ -6327,15 +6327,16 @@ a.text-dark:hover, a.text-dark:focus {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-  -webkit-column-count: 3;
-          column-count: 3;
+  max-width: 100%;
   -webkit-column-gap: 34px;
           column-gap: 34px;
   padding: 72px 20px 20px 20px;
-  margin: auto; }
+  margin: auto;
+  text-align: center; }
   .al-card-columns .al-card {
     position: relative;
     width: 356px;
+    max-width: 100%;
     display: inline-block;
     margin-bottom: 20px;
     text-align: center; }
@@ -6368,6 +6369,20 @@ a.text-dark:hover, a.text-dark:focus {
         font-size: 16px;
         text-transform: uppercase; }
 
+.al-card-columns {
+  -webkit-column-count: 1;
+          column-count: 1; }
+
+@media (min-width: 576px) {
+  .al-card-columns {
+    -webkit-column-count: 2;
+            column-count: 2; } }
+
+@media (min-width: 768px) {
+  .al-card-columns {
+    -webkit-column-count: 3;
+            column-count: 3; } }
+
 #before-footer {
   position: relative;
   padding-top: 20px; }
@@ -6382,6 +6397,11 @@ a.text-dark:hover, a.text-dark:focus {
       text-transform: uppercase;
       border: 2px solid #2f8586;
       color: #2f8586; }
+  @media (max-width: 575.98px) {
+    #before-footer .section1 {
+      display: grid; }
+      #before-footer .section1 button {
+        margin: 10px auto; } }
   #before-footer .instagram {
     padding-top: 56px;
     text-align: center; }
@@ -6401,7 +6421,8 @@ a.text-dark:hover, a.text-dark:focus {
       width: -moz-fit-content;
       width: fit-content;
       max-width: 100%;
-      margin: auto; }
+      margin: auto;
+      overflow: hidden; }
       #before-footer .instagram .slider .content {
         position: relative;
         display: inline-flex;
@@ -6482,6 +6503,7 @@ a.text-dark:hover, a.text-dark:focus {
   position: relative;
   width: 100%;
   min-height: 300px;
+  padding: 0 20px;
   text-align: center;
   color: #ffffff;
   background: linear-gradient(#3db3b5, #266d6f); }
@@ -6519,7 +6541,13 @@ a.text-dark:hover, a.text-dark:focus {
       #footer .subscribe input:hover, #footer .subscribe input:focus, #footer .subscribe input.active {
         border: 2px solid #ffffffff; }
     #footer .subscribe .form {
-      display: inline-flex; }
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center; }
+    @media (max-width: 767.98px) {
+      #footer .subscribe .form {
+        display: grid;
+        padding-top: 20px; } }
   #footer .box {
     padding-top: 50px;
     text-align: center; }
@@ -6539,6 +6567,12 @@ a.text-dark:hover, a.text-dark:focus {
           vertical-align: middle; }
           #footer .box .content.social button span.btn-fab .mdi {
             margin: auto; }
+      @media (max-width: 400px) {
+        #footer .box .content {
+          display: inline-block;
+          justify-content: center; }
+          #footer .box .content button {
+            display: block; } }
     #footer .box.sponsor .content button {
       text-transform: uppercase; }
   #footer .logo {
