@@ -6596,8 +6596,8 @@ a.text-dark:hover, a.text-dark:focus {
       #before-footer .instagram .slider .next {
         left: unset;
         right: 65px;
-        -webkit-transform: translate(0%, -50%) rotate(180deg);
-                transform: translate(0%, -50%) rotate(180deg); }
+        -webkit-transform: translate(50%, -50%) rotate(180deg);
+                transform: translate(50%, -50%) rotate(180deg); }
       #before-footer .instagram .slider .prev {
         left: 65px; }
     #before-footer .instagram #instagram_slider {

@@ -134,24 +134,31 @@ Instagram_Fecth('landscapeswelove')
  * Standard Slider
  */
 function slider_next(e){
-	var current = jQuery(e).parent().attr('data-slider') ? parseFloat(jQuery(e).parent().attr('data-slider')) : 0,
-	content = jQuery(e).parent().find('.content'),
-	parentWidth = jQuery(e).parent().width(),
-	itemWidth = 326,
-	viewableItem = parseInt(parentWidth / itemWidth),
-	hiddenItem = ( parentWidth / itemWidth - parseInt(parentWidth / itemWidth) ) / 2,
-	newVal = current - (itemWidth * (viewableItem));
+	var parent =  jQuery(e).parent(),
+	content = parent.find('.content'),
+	current = parent.attr('data-slider') ? parseFloat(parent.attr('data-slider')) : 0,
+	parentWidth = parent.width(),
+	contentWidth = content.width(),
+	itemWidth = content.find('.item').width(),
 
-	if(((newVal - (itemWidth * viewableItem)) * - 1) >= content.width()){
+	viewableItem = parseInt(parentWidth / itemWidth),
+	hiddenItem = (( parentWidth / itemWidth ) - viewableItem) / 2,
+	newVal = current == 0 ? 
+		current - ( viewableItem * itemWidth ) + (hiddenItem * itemWidth) : 
+		current - ( viewableItem * itemWidth );
+
+	if( contentWidth + newVal <= parentWidth ){
 		jQuery(e).css('display','none');
-		newVal = 0 - content.width() + parentWidth;
+		newVal = 0 - contentWidth + parentWidth;
 	}
 
-	jQuery(e).parent().find('.prev').css('display','block');
-	jQuery(e).parent().attr('data-slider',newVal);
+	parent.find('.prev').css('display','block');
+	parent.attr('data-slider',newVal);
 	content.css({'left': newVal + 'px'});
+
 }
 function slider_prev(e){
+	/*
 	var current = jQuery(e).parent().attr('data-slider') ? parseFloat(jQuery(e).parent().attr('data-slider')) : 0,
 	content = jQuery(e).parent().find('.content'),
 	parentWidth = jQuery(e).parent().width(),
@@ -167,6 +174,31 @@ function slider_prev(e){
 
 	jQuery(e).parent().find('.next').css('display','block');
 	jQuery(e).parent().attr('data-slider',newVal);
+	content.css({'left': newVal + 'px'});
+	*/
+
+	var parent = jQuery(e).parent(),
+	content = parent.find('.content'),
+	current = parent.attr('data-slider') ? parseFloat(parent.attr('data-slider')) : 0,
+	parentWidth = parent.width(),
+	contentWidth = content.width(),
+	itemWidth = content.find('.item').width(),
+
+	viewableItem = parseInt(parentWidth / itemWidth),
+	hiddenItem = (( parentWidth / itemWidth ) - viewableItem) / 2,
+	newVal = contentWidth + current == parentWidth ? 
+		current + ( viewableItem * itemWidth ) - (hiddenItem * itemWidth) : 
+		current + (itemWidth * viewableItem);
+
+	console.log(parentWidth);
+	console.log(contentWidth + current);
+	if( newVal >= 0 ){
+		jQuery(e).css('display','none');
+		newVal = 0;
+	}
+	
+	parent.find('.next').css('display','block');
+	parent.attr('data-slider',newVal);
 	content.css({'left': newVal + 'px'});
 }
 
