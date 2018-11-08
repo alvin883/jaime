@@ -41,7 +41,7 @@ class Description_Walker extends Walker_Nav_Menu {
 
 function update_jquery_version(){
     wp_deregister_script('jquery');
-    wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-3.3.1.min.js');
+    wp_register_script('jquery', get_template_directory_uri() . '/src/js/jquery-3.3.1.min.js');
 }
 
 function bootstrap_enqueue_styles(){
@@ -58,7 +58,7 @@ function bootstrap_enqueue_scripts(){
 }
 
 function custom_enqueue_scripts(){
-    wp_register_script('thisscript', get_template_directory_uri() . '/js/thisscript.js', array('jquery') );
+    wp_register_script('thisscript', get_template_directory_uri() . '/src/js/thisscript.js', array('jquery') );
     wp_enqueue_script('thisscript');
 }
 
