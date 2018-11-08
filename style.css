@@ -22,6 +22,26 @@ button {
   outline: none !important;
   background: none; }
 
+/*
+@mixin input($color) {
+    height: 40px;
+    width: 300px;
+    padding: 0 22px;
+    transition: var(--transition);
+    color: #ffffff;
+    box-sizing: border-box;
+    border: 2px solid #ffffff60;
+    border-radius: 3px;
+    background: transparent;
+
+    &::placeholder {
+        color: #ffffff60;
+    }
+    &:hover,&:focus,&.active {
+        border: 2px solid #ffffffff;
+    }
+}
+*/
 body {
   width: 100%;
   overflow-x: hidden;
@@ -6187,6 +6207,76 @@ a.text-dark:hover, a.text-dark:focus {
   height: 100%;
   width: 100%; }
 
+#searchpage {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  pointer-events: none; }
+  #searchpage .searchbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    padding: 40px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: var(--transition);
+    -webkit-transform: translateY(-130%);
+            transform: translateY(-130%);
+    box-shadow: var(--box-shadow-d-2);
+    background: #ffffff; }
+    #searchpage .searchbar input {
+      height: 40px;
+      width: 300px;
+      padding: 0 22px;
+      transition: var(--transition);
+      color: #266d6f;
+      box-sizing: border-box;
+      border: 2px solid rgba(38, 109, 111, 0.2);
+      border-radius: 3px;
+      background: transparent; }
+      #searchpage .searchbar input::-webkit-input-placeholder {
+        color: rgba(38, 109, 111, 0.4); }
+      #searchpage .searchbar input:-ms-input-placeholder {
+        color: rgba(38, 109, 111, 0.4); }
+      #searchpage .searchbar input::-ms-input-placeholder {
+        color: rgba(38, 109, 111, 0.4); }
+      #searchpage .searchbar input::placeholder {
+        color: rgba(38, 109, 111, 0.4); }
+      #searchpage .searchbar input:hover, #searchpage .searchbar input:focus, #searchpage .searchbar input.active {
+        border: 2px solid #266d6f; }
+    #searchpage .searchbar button {
+      position: relative;
+      height: 40px;
+      padding: 0 12px;
+      box-sizing: border-box;
+      border: none;
+      color: #ffffff;
+      transition: var(--transition);
+      background: rgba(47, 133, 134, 0.6); }
+      #searchpage .searchbar button .mdi {
+        vertical-align: middle; }
+      #searchpage .searchbar button:hover, #searchpage .searchbar button:focus {
+        background: #2f8586; }
+  #searchpage .block {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    transition: var(--transition);
+    background: transparent; }
+  #searchpage.active {
+    pointer-events: all; }
+    #searchpage.active .searchbar {
+      -webkit-transform: translateY(0);
+              transform: translateY(0); }
+    #searchpage.active .block {
+      background: rgba(0, 0, 0, 0.6); }
+
 .container1 {
   background: black; }
   .container1 .navbar {
@@ -6366,8 +6456,13 @@ a.text-dark:hover, a.text-dark:focus {
     .al-card-columns .al-card .footer {
       padding-bottom: 30px; }
       .al-card-columns .al-card .footer button {
+        transition: var(--transition);
         font-size: 16px;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        color: #000000D0; }
+        .al-card-columns .al-card .footer button:hover, .al-card-columns .al-card .footer button:focus {
+          color: #fff;
+          background: #3db2b4; }
 
 .al-card-columns {
   -webkit-column-count: 1;
@@ -6390,13 +6485,23 @@ a.text-dark:hover, a.text-dark:focus {
     position: inherit;
     text-align: center; }
     #before-footer .section1 button {
-      height: 50px;
-      padding: 0 30px;
-      font-size: 16px;
-      margin: 0 24px;
-      text-transform: uppercase;
+      position: relative;
+      height: 40px;
+      padding: 0 12px;
+      box-sizing: border-box;
       border: 2px solid #2f8586;
-      color: #2f8586; }
+      color: #2f8586;
+      transition: var(--transition);
+      background: transparent;
+      text-transform: uppercase;
+      padding: 0 30px;
+      margin: 0 24px;
+      text-transform: uppercase; }
+      #before-footer .section1 button .mdi {
+        vertical-align: middle; }
+      #before-footer .section1 button:hover, #before-footer .section1 button:focus {
+        color: #ffffff;
+        background: #2f8586; }
   @media (max-width: 575.98px) {
     #before-footer .section1 {
       display: grid; }
@@ -6498,6 +6603,10 @@ a.text-dark:hover, a.text-dark:focus {
     #before-footer .instagram #instagram_slider {
       margin-top: 26px; }
 
+/**
+FIXME: Navbar Not responsive
+TODO: Slider autoplay
+*/
 /* Footer */
 #footer {
   position: relative;
@@ -6511,11 +6620,15 @@ a.text-dark:hover, a.text-dark:focus {
     position: relative;
     height: 40px;
     padding: 0 12px;
-    border: 0px;
-    color: inherit;
-    background: #2f8586; }
+    box-sizing: border-box;
+    border: none;
+    color: #ffffff;
+    transition: var(--transition);
+    background: rgba(47, 133, 134, 0.6); }
     #footer button .mdi {
       vertical-align: middle; }
+    #footer button:hover, #footer button:focus {
+      background: #2f8586; }
   #footer .subscribe {
     padding-top: 26px;
     font-size: 16px;
@@ -6527,19 +6640,19 @@ a.text-dark:hover, a.text-dark:focus {
       transition: var(--transition);
       color: #ffffff;
       box-sizing: border-box;
-      border: 2px solid #ffffff60;
+      border: 2px solid rgba(255, 255, 255, 0.2);
       border-radius: 3px;
       background: transparent; }
       #footer .subscribe input::-webkit-input-placeholder {
-        color: #ffffff60; }
+        color: rgba(255, 255, 255, 0.4); }
       #footer .subscribe input:-ms-input-placeholder {
-        color: #ffffff60; }
+        color: rgba(255, 255, 255, 0.4); }
       #footer .subscribe input::-ms-input-placeholder {
-        color: #ffffff60; }
+        color: rgba(255, 255, 255, 0.4); }
       #footer .subscribe input::placeholder {
-        color: #ffffff60; }
+        color: rgba(255, 255, 255, 0.4); }
       #footer .subscribe input:hover, #footer .subscribe input:focus, #footer .subscribe input.active {
-        border: 2px solid #ffffffff; }
+        border: 2px solid #ffffff; }
     #footer .subscribe .form {
       display: inline-flex;
       flex-wrap: wrap;

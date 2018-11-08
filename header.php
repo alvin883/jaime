@@ -15,6 +15,13 @@
     <title><?php bloginfo('name'); ?></title>
 </head>
 <body <?php body_class(); ?>>
+	<div id="searchpage">
+		<div class="searchbar">
+			<input class="m-2" type="text" id="searchstring" placeholder="Search anything you like..." onblur="inputCheck(this)">
+			<button class="btn m-2"><span class="mdi mdi-send"></span></button>
+		</div>
+		<div class="block" onclick="toggleSearchPage();"></div>
+	</div>
 	<div class="al-container container1">
 		<nav class="navbar">
 			<div class="btn-group">
@@ -37,7 +44,7 @@
 			
 			<img src="<?php if(theme_options('general=nav_logo',false,'url') != ''){echo theme_options('general=nav_logo',false,'url');} ?>" alt="Jaime Logo" class="logo">
 
-			<button class="btn-fab m-1">
+			<button class="btn-fab m-1" onclick="toggleSearchPage();">
 				<span class="mdi mdi-magnify"></span>
 			</button>
 		</nav>
@@ -46,10 +53,10 @@
 			<button class="m-2">Jaime</button> -
 			<button class="m-2">Contact</button>
 		</nav>
-		<div class="slider" data-slider="1">
+		<div class="easeSwipe_slider slider">
 			<div class="content">
 
-				<div class="item active" data-id="1" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/jaime-0.png')">
+				<div class="item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/jaime-0.png')">
 					<div class="centered_content">
 						<div class="category">lifestyle</div>
 						<div class="title">happy new year !</div>
@@ -59,7 +66,7 @@
 					</div>
 				</div>
 
-				<div class="item" data-id="2" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/splash.jpg')">
+				<div class="item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/splash.jpg')">
 					<div class="centered_content">
 						<div class="category">fitness</div>
 						<div class="title">test second slider</div>
@@ -69,7 +76,7 @@
 					</div>
 				</div>
 
-				<div class="item" data-id="3" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/bubble.jpg')">
+				<div class="item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/img/bubble.jpg')">
 					<div class="centered_content">
 						<div class="category">technology</div>
 						<div class="title">this is 3rd slider</div>
@@ -79,7 +86,5 @@
 					</div>
 				</div>
 			</div>
-			<button class="next" onclick="easeSwipe_slider_next(this);"></button>
-			<button class="prev" onclick="easeSwipe_slider_prev(this);"></button>
 		</div>
 	</div>

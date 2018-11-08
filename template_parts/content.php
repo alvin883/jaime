@@ -24,7 +24,7 @@
 		<?php the_excerpt(); ?>
 	</div>
 	<div class="footer">
-		<button class="btn">read more</button>
+		<button class="btn" onclick="gotoURL(this);" data-url="<?php the_permalink(); ?>">read more</button>
 	</div>
 </div>
 <!--

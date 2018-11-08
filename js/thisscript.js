@@ -5,11 +5,7 @@ var InstagramNext = 'https://www.instagram.com/graphql/query/?query_hash=5b0222d
 InstagramNext = decodeURIComponent(InstagramNext);
 console.log(InstagramNext);
 
-console.log('changed');
-
-//window.onbeforeunload = function () {
-//	window.scrollTo(0, 0);
-//}
+console.log('DEV MODE');
 
 function toggleNav() {
 	// Check , is #sidenav active ?
@@ -19,16 +15,16 @@ function toggleNav() {
 	return jQuery('nav').removeClass('active');
 }
 
-function toggleSearch() {
-	// Check , is #searchbar active ?
-	var active = jQuery('#searchbar').hasClass('active');
+function toggleSearchPage() {
+	// Check , is #searchpage active ?
+	var active = jQuery('#searchpage').hasClass('active');
 
 	if (!active) {
-		jQuery('#s').trigger('focus');
-		return jQuery('#searchbar').addClass('active');
+		//jQuery('#s').trigger('focus');
+		return jQuery('#searchpage').addClass('active');
 	}
-	jQuery('#searchbutton').trigger('focus');
-	return jQuery('#searchbar').removeClass('active');
+	//jQuery('#searchbutton').trigger('focus');
+	return jQuery('#searchpage').removeClass('active');
 }
 
 function submitSearch() {
@@ -54,9 +50,7 @@ function scrollToTop(){
 }
 
 jQuery(document).ready(function () {
-	//document.getElementById('searchform').onsubmit = function () {
-	//	return submitSearch();
-	//};
+	easeSwipe_slider_init();
 });
 
 jQuery(document).scroll(function () {
@@ -180,6 +174,23 @@ function slider_prev(e){
 /**
  * Ease Swipe Slider
  */
+/**
+ * Initialize the slider
+ */
+function easeSwipe_slider_init(){
+	jQuery('.easeSwipe_slider').each(function(){
+		var id = 1;
+		parent = jQuery(this);
+		jQuery('.content').find('.item').each(function(){
+			jQuery(this).attr('data-id',id);
+			if(jQuery(this).hasClass('active')){
+				parent.attr('data-slider',id);
+			}
+			id += 1;
+		});
+		parent.append(`<button class="next" onclick="easeSwipe_slider_next(this);"></button><button class="prev" onclick="easeSwipe_slider_prev(this);"></button>`);
+	});
+}
 function easeSwipe_slider_next(e){
 	var parent = jQuery(e).parent(),
 	content = parent.find('.content'),
