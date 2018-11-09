@@ -74,8 +74,8 @@
         //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
         'allow_sub_menu'       => true,
         // Show the sections below the admin menu item or not
-        'menu_title'           => __( 'Material Design Setup', 'bootstraptheme' ),
-        'page_title'           => __( 'Material Design Setup', 'bootstraptheme' ),
+        'menu_title'           => __( 'Jaime Setup', 'bootstraptheme' ),
+        'page_title'           => __( 'Jaime Setup', 'bootstraptheme' ),
         // You will need to generate a Google API key to use this feature.
         // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
         'google_api_key'       => '',
@@ -330,6 +330,10 @@
                 'label'    => true,
                 'options' => array(
                      'Facebook URL' => '',
+                     'Instagram URL' => '',
+                     'Youtube URL' => '',
+                     'Twitter URL' => '',
+                     'Pinterest URL' => '',
                      'Github URL' => '',
                      'Linked In URL' => '',
                 ),

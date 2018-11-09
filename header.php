@@ -25,21 +25,22 @@
 	<div class="al-container container1">
 		<nav class="navbar">
 			<div class="btn-group">
-				<button class="btn-fab m-1">
-					<span class="mdi mdi-facebook"></span>
-				</button>
-				<button class="btn-fab m-1">
-					<span class="mdi mdi-instagram"></span>
-				</button>
-				<button class="btn-fab m-1">
-					<span class="mdi mdi-youtube"></span>
-				</button>
-				<button class="btn-fab m-1">
-					<span class="mdi mdi-twitter"></span>
-				</button>
-				<button class="btn-fab m-1">
-					<span class="mdi mdi-pinterest"></span>
-				</button>
+				<?php
+                    if(theme_options('general=social') != ''){
+						$social_icons = get_social_media_icons();
+                        foreach (theme_options('general=social') as $key => $value) {
+
+                            if(array_key_exists($key,$social_icons) && $value != '' && !empty($value)){
+                                ?>
+									<button class="btn-fab m-1" data-url="<?php echo $value; ?>" onclick="gotoURL(this)">
+										<span class="mdi mdi-<?php echo $social_icons[$key]; ?>"></span>
+									</button>
+                                <?php
+                            }
+
+                        }
+                    }
+                ?>
 			</div>
 			
 			<img src="<?php if(theme_options('general=nav_logo',false,'url') != ''){echo theme_options('general=nav_logo',false,'url');} ?>" alt="Jaime Logo" class="logo">

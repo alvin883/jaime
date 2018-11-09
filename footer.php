@@ -21,11 +21,22 @@
         <div class="box">
             <div class="title">Get Social</div>
             <div class="content social">
-                <button class="btn m-2"><span class="btn-fab"><span class="mdi mdi-facebook"></span></span>Facebook</button>
-                <button class="btn m-2"><span class="btn-fab"><span class="mdi mdi-instagram"></span></span>Instagram</button>
-                <button class="btn m-2"><span class="btn-fab"><span class="mdi mdi-youtube"></span></span>Youtube</button>
-                <button class="btn m-2"><span class="btn-fab"><span class="mdi mdi-twitter"></span></span>Twitter</button>
-                <button class="btn m-2"><span class="btn-fab"><span class="mdi mdi-pinterest"></span></span>Pinterest</button>
+				<?php
+                    if(theme_options('general=social') != ''){
+						$social_icons = get_social_media_icons();
+                        foreach (theme_options('general=social') as $key => $value) {
+
+                            if(array_key_exists($key,$social_icons) && $value != '' && !empty($value)){
+                                ?>
+                                    <button class="btn m-2"><span class="btn-fab">
+                                        <span class="mdi mdi-<?php echo $social_icons[$key]; ?>"></span></span><?php echo $social_icons[$key]; ?>
+                                    </button>
+                                <?php
+                            }
+
+                        }
+                    }
+                ?>
             </div>
         </div>
         <img src="<?php if(theme_options('general=nav_logo',false,'url') != ''){echo theme_options('general=nav_logo',false,'url');} ?>" alt="Jaime Logo" class="logo"> 

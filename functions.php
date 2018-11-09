@@ -104,6 +104,12 @@ add_action('widgets_init','ourWidgetsInit');
 
 
 /**
+ * Sosial Media Icons
+ */
+require get_template_directory() . '/inc/social-media-icons.php';
+
+
+/**
  * Custom Comment Template
  */
 require get_template_directory() . '/inc/custom/comment.php';
