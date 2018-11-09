@@ -10,12 +10,16 @@
         <div class="box sponsor">
             <div class="title">SPONSORS</div>
             <div class="content">
-                <button class="btn m-2">flex challenge</button>
-                <button class="btn m-2">gorilla wear</button>
-                <button class="btn m-2">onzie flow</button>
-                <button class="btn m-2">brazil wear</button>
-                <button class="btn m-2">lanton sport</button>
-                <button class="btn m-2">orange fit</button>
+            <?php 
+                if(theme_options('general_sponsors')){
+                    foreach (theme_options('general_sponsors') as $value) {
+            ?>
+                
+                        <button class="btn m-2"><?php echo $value; ?></button>
+            <?php
+                    }
+                }
+            ?>
             </div>
         </div>
         <div class="box">

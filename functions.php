@@ -153,4 +153,14 @@ function comment_form_hidden_fields()
     }
 }
 
+
+/**
+ * Login Page
+ */
+function my_custom_login(){
+    echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/src/css/login-style.css" />';
+}
+//add_action('login_head', 'my_custom_login');
+
+
 ?>

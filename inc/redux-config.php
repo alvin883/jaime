@@ -194,7 +194,7 @@
 
     // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
     $args['share_icons'][] = array(
-        'url'   => 'https://github.com/ReduxFramework/ReduxFramework',
+        'url'   => 'https://github.com/alvin883/jaime',
         'title' => 'Visit us on GitHub',
         'icon'  => 'el el-github'
         //'img'   => '', // You can use icon OR img. IMG needs to be a full URL.
@@ -276,31 +276,14 @@
     Redux::setSection($opt_name, array(
         'title'   => 'General',
         'icon'    => 'el-icon-cogs',
-        'heading' => 'This is Heading',
-        'desc'    => '<br />This is the section description.  HTML is permitted.<br />',
+        'heading' => 'General Option',
         'fields'  => array(
-            /*
-            array(
-                'id'        => 'testtext',
-                'type'      => 'text',
-                'default'   => 'This is default value',
-                'title'     => 'A sample text box',
-            ),
-            */
-            array(
-                'id'       => 'general=is_fixed_nav',
-                'type'     => 'switch', 
-                'title'    => __('Fixed Navbar', 'bootstraptheme'),
-                'subtitle' => __('Setting fixed nav', 'bootstraptheme'),
-                'default'  => true,
-            ),
             array(
                 'id'       => 'general=nav_logo',
                 'type'     => 'media', 
                 'url'      => true,
                 'title'    => __('Navigation Logo', 'bootstraptheme'),
-                'desc'     => __('This will displayed inside navigation', 'bootstraptheme'),
-                'subtitle' => __('Upload image', 'bootstraptheme'),
+                'subtitle' => __('Will displayed inside navigation', 'bootstraptheme'),
                 'default'  => null,
             ),
             array(
@@ -308,18 +291,9 @@
                 'type'     => 'media', 
                 'url'      => true,
                 'title'    => __('Favicon', 'bootstraptheme'),
-                'desc'     => __('This will displayed as Favicon', 'bootstraptheme'),
-                'subtitle' => __('Upload image', 'bootstraptheme'),
+                'subtitle' => __('This will displayed as Favicon', 'bootstraptheme'),
                 'default'  => null,
-            )
-        ),
-    ));
-    Redux::setSection($opt_name, array(
-        'title'   => 'Social Media',
-        'icon'    => 'el-icon-user', // U can find here http://elusiveicons.com
-        'heading' => 'Comment Box Style',
-        'desc'    => 'Styling your Comment Box.',
-        'fields'  => array(
+            ),
             array(
                 'id'       => 'general=social',
                 'type'     => 'sortable',
@@ -337,48 +311,18 @@
                      'Github URL' => '',
                      'Linked In URL' => '',
                 ),
+            ),
+            array(
+                'id'=>'general_sponsors',
+                'type' => 'multi_text',
+                'title' => __('List Sponsor', 'bootstraptheme'),
+                'validate' => 'no_html',
+                'subtitle' => __('All sponsors that will displayed in homepage', 'bootstraptheme'),
+                'desc' => __('This is the description field, again good for additional info.', 'bootstraptheme')
             )
-        )
+        ),
     ));
 
-    Redux::setSection($opt_name, array(
-        'title'   => 'Comment Box Style',
-        'icon'    => 'el-icon-comment', // U can find here http://elusiveicons.com
-        'heading' => 'Comment Box Style',
-        'desc'    => 'Styling your Comment Box.',
-        'fields'  => array(
-            array(
-                'id'       => 'comment_box_reply_style',
-                'type'     => 'select',
-                'title'    => __('Select Style', 'bootstraptheme'), 
-                'subtitle' => __('For Reply Button in comment box', 'bootstraptheme'),
-                // Must provide key => value pairs for select options
-                'options'  => array(
-                    '0' => 'Standard Button',
-                    '1' => 'Rounded Mini Button',
-                    '2' => 'Circle Button'
-                ),
-                'default'  => '2',
-            )
-        ),
-    ));
-    Redux::setSection($opt_name, array(
-        'title'   => 'CSS',
-        'icon'    => 'el-icon-css', // U can find here http://elusiveicons.com
-        'heading' => 'Custom CSS',
-        'desc'    => 'Write your custom CSS here for overwrite the style.',
-        'fields'  => array(
-            array(
-                'id'       => 'custom_css',
-                'type'     => 'ace_editor',
-                'title'    => __('CSS', 'bootstraptheme'),
-                'subtitle' => __('Paste your CSS code here.', 'bootstraptheme'),
-                'mode'     => 'css',
-                'theme'    => 'monokai',
-                'default'  => ""
-            )
-        ),
-    ));
 
     /*
      * <--- END SECTIONS
