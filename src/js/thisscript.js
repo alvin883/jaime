@@ -1,9 +1,9 @@
 'use strict';
 
 //QVFCYnlEeEZ0ZWJpaWx2UGFGXzFwblZ3X3N6eGpYQVFvN0U1Znh1cE44QTZMZUVpVmIwaXZzSmplRHpaUWE5MWR2M0xWU01pU1c1RHNpdFRUdnRTMWM2Yg==
-var InstagramNext = 'https://www.instagram.com/graphql/query/?query_hash=5b0222df65d7f6659c9b82246780caa7&variables=%7B%22id%22%3A%228531851046%22%2C%22first%22%3A12%2C%22after%22%3A%22QVFDWE1JcWRSaWZ0RG43VU96dW0zeS1DckdfdWZjR0lBSXFjQk4xUmN2THphT2NPaEQwbV9yMFJaWmRCbmhJTkxmQlNSak9QMGRmWG9zSlZkZnJHWDBwWA%3D%3D%22%7D';
-InstagramNext = decodeURIComponent(InstagramNext);
-console.log(InstagramNext);
+//var InstagramNext = 'https://www.instagram.com/graphql/query/?query_hash=5b0222df65d7f6659c9b82246780caa7&variables=%7B%22id%22%3A%228531851046%22%2C%22first%22%3A12%2C%22after%22%3A%22QVFDWE1JcWRSaWZ0RG43VU96dW0zeS1DckdfdWZjR0lBSXFjQk4xUmN2THphT2NPaEQwbV9yMFJaWmRCbmhJTkxmQlNSak9QMGRmWG9zSlZkZnJHWDBwWA%3D%3D%22%7D';
+//InstagramNext = decodeURIComponent(InstagramNext);
+//console.log(InstagramNext);
 
 console.log('DEV MODE');
 
@@ -158,25 +158,6 @@ function slider_next(e){
 
 }
 function slider_prev(e){
-	/*
-	var current = jQuery(e).parent().attr('data-slider') ? parseFloat(jQuery(e).parent().attr('data-slider')) : 0,
-	content = jQuery(e).parent().find('.content'),
-	parentWidth = jQuery(e).parent().width(),
-	itemWidth = 326,
-	viewableItem = parseInt(parentWidth / itemWidth),
-	hiddenItem = ( parentWidth / itemWidth - parseInt(parentWidth / itemWidth) ),
-	newVal = current + (itemWidth * (viewableItem));
-
-	if(newVal >= 0){
-		jQuery(e).css('display','none');
-		newVal = 0;
-	}
-
-	jQuery(e).parent().find('.next').css('display','block');
-	jQuery(e).parent().attr('data-slider',newVal);
-	content.css({'left': newVal + 'px'});
-	*/
-
 	var parent = jQuery(e).parent(),
 	content = parent.find('.content'),
 	current = parent.attr('data-slider') ? parseFloat(parent.attr('data-slider')) : 0,
@@ -189,9 +170,7 @@ function slider_prev(e){
 	newVal = contentWidth + current == parentWidth ? 
 		current + ( viewableItem * itemWidth ) - (hiddenItem * itemWidth) : 
 		current + (itemWidth * viewableItem);
-
-	console.log(parentWidth);
-	console.log(contentWidth + current);
+		
 	if( newVal >= 0 ){
 		jQuery(e).css('display','none');
 		newVal = 0;
