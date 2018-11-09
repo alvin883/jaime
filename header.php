@@ -15,13 +15,7 @@
     <title><?php bloginfo('name'); ?></title>
 </head>
 <body <?php body_class(); ?>>
-	<div id="searchpage">
-		<div class="searchbar">
-			<input class="m-2" type="text" id="searchstring" placeholder="Search anything you like..." onblur="inputCheck(this)">
-			<button class="btn m-2"><span class="mdi mdi-send"></span></button>
-		</div>
-		<div class="block" onclick="toggleSearchPage();"></div>
-	</div>
+	<?php get_search_form(); ?>
 	<div class="al-container container1">
 		<nav class="navbar">
 			<div class="btn-group">
