@@ -200,32 +200,54 @@ function easeSwipe_slider_init(){
 			id += 1;
 		});
 		parent.append(`<button class="next" onclick="easeSwipe_slider_next(this);"></button><button class="prev" onclick="easeSwipe_slider_prev(this);"></button>`);
+		
+		parent[0].startSlider =  function(){
+			parent[0].slideInterval = setInterval(() => {
+				console.log('fired');
+				easeSwipe_slider_next(parent.find('.next'),false);
+			}, 3000);
+		};
+		parent[0].slideHover = false;
+		parent[0].startSlider();
+		parent.on("mouseenter",function(){
+			parent[0].slideHover = true;
+			clearInterval(parent[0].slideInterval);
+		}).on("mouseleave",function(){
+			parent[0].slideHover = false;
+			parent[0].startSlider();
+		});
 	});
 }
-function easeSwipe_slider_next(e){
+function easeSwipe_slider_next(e,human = true){
 	var parent = jQuery(e).parent(),
 	content = parent.find('.content'),
 	current = parseInt(parent.attr('data-slider')),
 	newVal = current + 1;
 
-	if(newVal > content.find('.item').length){
-		newVal = 1;
+	if(human){
+		clearInterval(parent[0].slideInterval);
+		if(!parent[0].slideHover) parent[0].startSlider();
 	}
+
+	if(newVal > content.find('.item').length){ newVal = 1; }
 
 	content.find('.item.active').removeClass('active');
 	content.find('.item[data-id='+ newVal +']').addClass('active');
 
 	parent.attr('data-slider',newVal);
 }
-function easeSwipe_slider_prev(e){
+function easeSwipe_slider_prev(e,human = true){
 	var parent = jQuery(e).parent(),
 	content = parent.find('.content'),
 	current = parseInt(parent.attr('data-slider')),
 	newVal = current - 1;
 
-	if(newVal <= 0){
-		newVal = content.find('.item').length;
+	if(human){
+		clearInterval(parent[0].slideInterval);
+		if(!parent[0].slideHover) parent[0].startSlider();
 	}
+
+	if(newVal <= 0){ newVal = content.find('.item').length; }
 
 	content.find('.item.active').removeClass('active');
 	content.find('.item[data-id='+ newVal +']').addClass('active');
