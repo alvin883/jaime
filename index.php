@@ -1,6 +1,8 @@
 <?php
     get_header();
 
+    get_template_part('template_parts/homepage/header');
+
     $currentPageNumber = (int)get_query_var('paged');
     $olderPageNumber = $currentPageNumber < 2 ? false : true ;
     $nextPageNumber = new WP_Query( array(

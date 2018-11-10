@@ -279,7 +279,7 @@
         'heading' => 'General Option',
         'fields'  => array(
             array(
-                'id'       => 'general=nav_logo',
+                'id'       => 'general_nav_logo',
                 'type'     => 'media', 
                 'url'      => true,
                 'title'    => __('Navigation Logo', 'bootstraptheme'),
@@ -287,7 +287,7 @@
                 'default'  => null,
             ),
             array(
-                'id'       => 'general=favicon',
+                'id'       => 'general_favicon',
                 'type'     => 'media', 
                 'url'      => true,
                 'title'    => __('Favicon', 'bootstraptheme'),
@@ -295,7 +295,7 @@
                 'default'  => null,
             ),
             array(
-                'id'       => 'general=social',
+                'id'       => 'general_social',
                 'type'     => 'sortable',
                 'title'    => __('Social Media', 'bootstraptheme'),
                 'subtitle' => __('Define Social Media and reorder these however you want.', 'bootstraptheme'),

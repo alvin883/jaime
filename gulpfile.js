@@ -20,7 +20,18 @@ gulp.task('styles', function () {
 		.pipe(gulp.dest('.'))
 		.pipe(notify({ title: 'Sass', message: 'sass task complete' }))
 });
-gulp.task('watch', function () {
-	gulp.watch('./sass/**/*.scss', gulp.series('styles'));
+
+gulp.task('login-styles', function () {
+	return gulp.src('./sass/login-style.scss')
+		.pipe(plumber())
+		.pipe(sass(options.sass))
+		.pipe(autoprefixer())
+		.pipe(gulp.dest('./src/css'))
+		.pipe(notify({ title: 'Sass', message: 'sass task complete' }))
 });
+
+gulp.task('watch', function () {
+	gulp.watch('./sass/**/*.scss', gulp.parallel([gulp.series('styles'), gulp.series('login-styles')]));
+});
+
 gulp.task('default', gulp.series('watch'));
